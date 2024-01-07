@@ -1,0 +1,24 @@
+//Microsoft
+
+https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii/description/
+
+
+class Solution {
+    public int minMoves2(int[] nums) {
+        Arrays.sort(nums);
+
+        int n= nums.length;
+        int target = (nums[(n-1)/2]+nums[n/2])/2;
+        int result = 0;
+
+        
+
+        for(int i = 0 ; i< n ; i++)
+        {
+            result= result + Math.abs(target - nums[i]);
+        }
+
+        return result;
+        
+    }
+}
