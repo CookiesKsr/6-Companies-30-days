@@ -1,0 +1,37 @@
+//microsoft
+https://leetcode.com/problems/bulls-and-cows/description/
+
+class Solution {
+    public String getHint(String s, String g) 
+    {
+
+        int bulls = 0;
+        int cows = 0;
+        int[] secret = new int[10];
+        int[] guess = new int[10];
+        for (int i = 0; i<s.length(); i++)
+        {
+          if (s.charAt(i) == g.charAt(i)) 
+          {
+              bulls++;
+          }
+          else 
+          {
+              secret[s.charAt(i)-'0']++;
+              guess[g.charAt(i)-'0']++;
+          }
+        }
+
+
+        for(int i=0 ; i<10; i++)
+        {
+            cows+=Math.min(secret[i],guess[i]);
+        }
+     
+     
+         return bulls + "A" + cows + "B";
+
+
+        
+    }
+}
